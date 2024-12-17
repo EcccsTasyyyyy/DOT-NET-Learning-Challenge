@@ -66,7 +66,7 @@
                         break;
 
                     default:
-                        Console.WriteLine("Something went wrong try again");
+                        Console.WriteLine("Something went wrong try again...");
                         return;
                 }
                 Console.WriteLine();
