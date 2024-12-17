@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOT-NET-Learning-Challenge", "DOT-NET-Learning-Challenge\DOT-NET-Learning-Challenge.csproj", "{B7EB8539-2A52-4D65-AFE0-767C3100D802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator", "SimpleCalculator\SimpleCalculator.csproj", "{225E65E7-6071-4DEB-9FC1-8DB88426718B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7EB8539-2A52-4D65-AFE0-767C3100D802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EB8539-2A52-4D65-AFE0-767C3100D802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EB8539-2A52-4D65-AFE0-767C3100D802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EB8539-2A52-4D65-AFE0-767C3100D802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{225E65E7-6071-4DEB-9FC1-8DB88426718B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225E65E7-6071-4DEB-9FC1-8DB88426718B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225E65E7-6071-4DEB-9FC1-8DB88426718B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225E65E7-6071-4DEB-9FC1-8DB88426718B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
