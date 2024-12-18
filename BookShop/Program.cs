@@ -57,7 +57,7 @@
             Console.Write("Enter your budget: ");
             decimal budget = Convert.ToDecimal(Console.ReadLine());
 
-            Console.WriteLine($"\nBooks you can afford with your budget {budget}");
+            Console.WriteLine($"\nBooks you can afford with your budget {budget}: ");
 
             foreach(Book book in bookArray)
             {
