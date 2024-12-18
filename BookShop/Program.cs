@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Book[] bookArray = new Book[10]
+            Book[] bookArray =
             {
                 new Book { Title = "title1", Price = 9.99m },
                 new Book { Title = "title2", Price = 10.99m },
