@@ -5,7 +5,6 @@
         const decimal minSalary = 1000;
         static void Main(string[] args)
         {
-
             string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
             decimal[,] expenses = new decimal[12, 4];
@@ -53,31 +52,60 @@
 
             //decimal avarageMonthlyExpenses = totalExpenses / months.Length;
             decimal avarageMonthlyExpenses = totalExpenses / 2;
-            Console.WriteLine($"{avarageMonthlyExpenses}");
+            Console.WriteLine($"Avarage monthly expenses: {avarageMonthlyExpenses}");
 
-            Console.WriteLine($"{aboveMinSalaryCount}");
+            Console.WriteLine($"How many times was salary above minimal: {aboveMinSalaryCount}");
 
-            Console.WriteLine($"{maxExpenseMonth} {maxExpenses}");
+            Console.WriteLine($"Most expensive month was: {maxExpenseMonth} with amount of: {maxExpenses}");
 
             Console.Write("\nChoose a month for a detailed report: ");
-            int monthIndex = Convert.ToInt32(Console.ReadLine());
+            int monthIndex = Convert.ToInt32(Console.ReadLine()) - 1;
 
-            if(monthIndex >= 1 && monthIndex <= 12)
+            if(monthIndex >= 0 && monthIndex <= 12)
             {
-                int monthNumber = monthIndex - 1;
-
-                decimal salary = expenses[monthNumber, 0];
-                decimal communalBills = expenses[monthNumber, 1];
-                decimal groceryExpenses = expenses[monthNumber, 2];
-                decimal enterteinmentExpenses = expenses[monthNumber, 3];
+                decimal salary = expenses[monthIndex, 0];
+                decimal communalBills = expenses[monthIndex, 1];
+                decimal groceryExpenses = expenses[monthIndex, 2];
+                decimal enterteinmentExpenses = expenses[monthIndex, 3];
                 decimal total = communalBills + groceryExpenses + enterteinmentExpenses;
 
-                Console.WriteLine($"\nDetailed report for {months[monthNumber]}");
+                Console.WriteLine($"\nDetailed report for {months[monthIndex]}");
                 Console.WriteLine($"Salary: {salary}");
                 Console.WriteLine($"Communal bills: {communalBills}");
                 Console.WriteLine($"Grocery expenses: {groceryExpenses}");
                 Console.WriteLine($"Enterteinment expenses: {enterteinmentExpenses}");
                 Console.WriteLine($"Total expenses for month: {total}");
+            }
+
+            Console.Write("\nEnter saving goal: ");
+            decimal savingGoal = Convert.ToDecimal(Console.ReadLine());
+            decimal avarageSavings = (totalSalary - totalExpenses) / 2;
+            int monthsToReachGoal = (int)Math.Ceiling(savingGoal / avarageSavings);
+            Console.WriteLine($"It`s gonna take {monthsToReachGoal} months to reach your goal of {savingGoal}");
+
+            decimal maxSavings = 0;
+            string highestMonthlySaving = string.Empty;
+
+            //for (int i = 0; i < months.Length; i++)
+            for (int i = 0; i < 2;  i++)
+            {
+                decimal monthlySavings = expenses[i, 0] - (expenses[i, 1] + expenses[i, 2] + expenses[i, 3]);
+                if(monthlySavings > maxSavings )
+                {
+                    maxSavings = monthlySavings;
+                    highestMonthlySaving = months[i];
+                }
+            }
+
+            Console.WriteLine($"Highest monthly saving was  in {highestMonthlySaving}, with amount of {maxSavings}");
+
+            Console.WriteLine("\t---- Yearly Expenses Visualization ----");
+            //for (int i = 0; i < months.Length; i++)
+            for (int i = 0; i < 2; i++)
+            {
+                decimal monthlyTotal = expenses[i, 1] + expenses[i, 2] + expenses[i, 3];
+                int stars = (int)(monthlyTotal / 100);
+                Console.WriteLine($"{months[i]}: {new string('*', stars)}");
             }
         }
     }
