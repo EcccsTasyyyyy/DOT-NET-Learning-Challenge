@@ -10,7 +10,7 @@
             Console.WriteLine();
 
             Console.Write("Enter your First: ");
-            string name = Console.ReadLine();
+            string? name = Console.ReadLine();
 
             Console.Write("Enter your sallary: ");
             decimal userSalary = Convert.ToDecimal(Console.ReadLine());
