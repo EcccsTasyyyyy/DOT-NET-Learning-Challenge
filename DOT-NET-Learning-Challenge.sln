@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci", "Fibonacci\Fibo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Text_Analyzer", "Text_Analyzer\Text_Analyzer.csproj", "{9F7BD947-4919-4D02-8684-14C29F59A3B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School_Library_Manager", "School_Library_Manager\School_Library_Manager.csproj", "{952FD961-EA2B-4F7B-BCC2-FD72BD4584C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{9F7BD947-4919-4D02-8684-14C29F59A3B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F7BD947-4919-4D02-8684-14C29F59A3B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F7BD947-4919-4D02-8684-14C29F59A3B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{952FD961-EA2B-4F7B-BCC2-FD72BD4584C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952FD961-EA2B-4F7B-BCC2-FD72BD4584C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952FD961-EA2B-4F7B-BCC2-FD72BD4584C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952FD961-EA2B-4F7B-BCC2-FD72BD4584C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
