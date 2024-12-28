@@ -1,29 +1,24 @@
-﻿namespace Master_of_Sorting_Algorithms
+﻿using System.Diagnostics;
+
+namespace Master_of_Sorting_Algorithms
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter array length: ");
-            int arrayLength = int.Parse(Console.ReadLine());
-
-            Console.Write("Enter array min number: ");
-            int minNumber = int.Parse(Console.ReadLine());
-
-            Console.Write(@"Enter array max number: ");
-            int maxNumber = int.Parse(Console.ReadLine());
-
-            int[] array = GenerateRandomArray(arrayLength, minNumber, maxNumber);
-
-            bool sorted = IsSorted(array);
-            Console.WriteLine($"Is array sorted?: {sorted}");
-
-            //BubbleSort(array);
-            HybridSort(array);
+            ShowMenu();
         }
 
-        static int[] GenerateRandomArray(int length, int min, int max)
+        static int[] GenerateRandomArray()
         {
+            Console.WriteLine("Enter array parameters: ");
+            Console.Write("Enter array length: ");
+            int length = int.Parse(Console.ReadLine() ?? "0");
+            Console.Write("Enter array min number: ");
+            int min = int.Parse(Console.ReadLine() ?? "0");
+            Console.Write("Enter array max number: ");
+            int max = int.Parse(Console.ReadLine() ?? "0");
+
             Random random = new Random();
             int[] array = new int[length];
 
@@ -31,7 +26,6 @@
             {
                 array[i] = random.Next(min, max);
             }
-
             return array;
         }
 
@@ -39,58 +33,48 @@
         {
             for (int i = 0; i < array.Length - 1; i++)
             {
-                if (array[i] > array[i + 1])
-                {
-                    return false;
-                }
+                if (array[i] > array[i + 1]) return false;
             }
-
             return true;
         }
 
         static void PrintArray(int[] array)
         {
-            Console.WriteLine($"Array: {string.Join(", ", array)}");
-            Console.WriteLine();
+            Console.WriteLine("Array: " + string.Join(", ", array));
         }
 
-        static void BubbleSort(int[] array)
+        static void RecursiveBubbleSort(int[] array, int n)
         {
-            int n = array.Length;
+            if (n == 1) return;
 
             for (int i = 0; i < n - 1; i++)
             {
-                for (int j = 0; j < n - i - 1; j++)
+                if (array[i] > array[i + 1])
                 {
-                    if (array[j] > array[j + 1])
-                    {
-                        (array[j + 1], array[j]) = (array[j], array[j + 1]);
-                    }
+                    (array[i], array[i + 1]) = (array[i + 1], array[i]);
                 }
             }
-            Console.WriteLine("Bubble Sort:");
-            PrintArray(array);
+
+            RecursiveBubbleSort(array, n - 1);
         }
 
         static void HybridSort(int[] array)
         {
-            if (array.Length <= 20)
+            if (array.Length <= 1000)
             {
-                Console.WriteLine("\tInsertion Sort");
+                Console.WriteLine("Using Insertion Sort for small arrays");
                 InsertionSort(array);
             }
             else
             {
-                Console.WriteLine("\tMerge Sort");
-                MergeSort(array,0, array.Length - 1);
+                Console.WriteLine("Using Merge Sort for large arrays");
+                MergeSort(array, 0, array.Length - 1);
             }
-
-            PrintArray(array);
         }
 
         static void InsertionSort(int[] array)
         {
-            for (int i = 1; i < array.Length; ++i)
+            for (int i = 1; i < array.Length; i++)
             {
                 int key = array[i];
                 int j = i - 1;
@@ -129,7 +113,6 @@
             Array.Copy(array, mid + 1, rightArray, 0, n2);
 
             int i = 0, j = 0, k = left;
-
             while (i < n1 && j < n2)
             {
                 if (leftArray[i] <= rightArray[j])
@@ -142,14 +125,111 @@
                 }
             }
 
-            while (i < n1)
-            {
-                array[k++] = leftArray[i++];
-            }
+            while (i < n1) array[k++] = leftArray[i++];
+            while (j < n2) array[k++] = rightArray[j++];
+        }
 
-            while (j < n2)
+        static void CompareAlgorithms(int[] array)
+        {
+            int[] bubbleArray = (int[])array.Clone();
+            int[] insertionArray = (int[])array.Clone();
+            int[] mergeArray = (int[])array.Clone();
+
+            Stopwatch sw = new Stopwatch();
+
+            sw.Start();
+            RecursiveBubbleSort(bubbleArray, bubbleArray.Length);
+            sw.Stop();
+            Console.WriteLine($"Bubble Sort time: {sw.ElapsedMilliseconds} ms");
+
+            sw.Restart();
+            InsertionSort(insertionArray);
+            sw.Stop();
+            Console.WriteLine($"Insertion Sort time: {sw.ElapsedMilliseconds} ms");
+
+            sw.Restart();
+            MergeSort(mergeArray, 0, mergeArray.Length - 1);
+            sw.Stop();
+            Console.WriteLine($"Merge Sort time: {sw.ElapsedMilliseconds} ms");
+
+            Console.WriteLine($"Bubble Sort correct: {IsSorted(bubbleArray)}");
+            Console.WriteLine($"Insertion Sort correct: {IsSorted(insertionArray)}");
+            Console.WriteLine($"Merge Sort correct: {IsSorted(mergeArray)}");
+        }
+
+        static void ShowMenu()
+        {
+            int[]? array = null;
+
+            while (true)
             {
-                array[k++] = rightArray[j++];
+                Console.WriteLine("\nChoose an option: ");
+                Console.WriteLine("1 - Generate random array");
+                Console.WriteLine("2 - Apply a sorting algorithm");
+                Console.WriteLine("3 - Compare all algorithms");
+                Console.WriteLine("0 - Exit");
+
+                int userInput = int.Parse(Console.ReadLine() ?? "0");
+
+                switch (userInput)
+                {
+                    case 1:
+                        array = GenerateRandomArray();
+                        PrintArray(array);
+                        break;
+                    case 2:
+                        if (array == null)
+                        {
+                            Console.WriteLine("You need to generate an array first.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Choose sorting algorithm:");
+                            Console.WriteLine("1 - Bubble Sort");
+                            Console.WriteLine("2 - Insertion Sort");
+                            Console.WriteLine("3 - Merge Sort");
+                            Console.WriteLine("4 - Hybrid Sort");
+
+                            int sortChoice = int.Parse(Console.ReadLine() ?? "0");
+
+                            switch (sortChoice)
+                            {
+                                case 1:
+                                    RecursiveBubbleSort(array, array.Length);
+                                    break;
+                                case 2:
+                                    InsertionSort(array);
+                                    break;
+                                case 3:
+                                    MergeSort(array, 0, array.Length - 1);
+                                    break;
+                                case 4:
+                                    HybridSort(array);
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid option.");
+                                    break;
+                            }
+                            PrintArray(array);
+                        }
+                        break;
+                    case 3:
+                        if (array == null)
+                        {
+                            Console.WriteLine("You need to generate an array first.");
+                        }
+                        else
+                        {
+                            CompareAlgorithms(array);
+                        }
+                        break;
+                    case 0:
+                        Console.WriteLine("Exiting program.");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid option. Please choose again.");
+                        break;
+                }
             }
         }
     }
