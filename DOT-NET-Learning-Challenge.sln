@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Master-of-Sorting-Algorithm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_Detective", "Library_Detective\Library_Detective.csproj", "{C36C11A1-98DD-41C6-AFD1-52CDAD8BCEDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Processing_Wizard", "Task_Processing_Wizard\Task_Processing_Wizard.csproj", "{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{C36C11A1-98DD-41C6-AFD1-52CDAD8BCEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C36C11A1-98DD-41C6-AFD1-52CDAD8BCEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C36C11A1-98DD-41C6-AFD1-52CDAD8BCEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
