@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_Detective", "Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Processing_Wizard", "Task_Processing_Wizard\Task_Processing_Wizard.csproj", "{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic-Game-With-Moving-Enemies", "Dynamic-Game-With-Moving-Enemies\Dynamic-Game-With-Moving-Enemies.csproj", "{77978292-685E-4A95-BFCD-A33804125F09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21AD3CE3-8411-4F52-96EC-EFFE63FD083D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77978292-685E-4A95-BFCD-A33804125F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77978292-685E-4A95-BFCD-A33804125F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77978292-685E-4A95-BFCD-A33804125F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77978292-685E-4A95-BFCD-A33804125F09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
