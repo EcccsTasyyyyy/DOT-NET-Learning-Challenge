@@ -1,66 +1,46 @@
 ﻿namespace Dynamic_Game_With_Moving_Enemies;
 
-public class Map
+public class Map(Player player, Enemy[] enemies, Treasure[] treasures)
 {
-    private readonly Player _player;
-    private readonly Enemy[] _enemies;
-    private readonly Treasure _treasure;
-    public const int width = 50;
-    public const int height = 50;
-    public const char emptySpace = '.';
-    public char[,] map = new char[width, height];
+    public const int Width = 30;
+    public const int Height = 20;
+    public readonly char[,] _map = new char[Height, Width];
 
-    public Map(Player player, Enemy[] enemies, Treasure treasure)
+    private readonly Player _player = player;
+    private readonly Enemy[] _enemies = enemies;
+    private readonly Treasure[] _treasures = treasures;
+
+    private void ClearMap()
     {
-        _player = player;
-        _enemies = enemies;
-        _treasure = treasure;
+        for (int i = 0; i < Height; i++)
+            for (int j = 0; j < Width; j++)
+                _map[i, j] = '.';
     }
 
-    public void InitializeMap()
+    private void PlaceObjects()
     {
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                map[i, j] = emptySpace;
-            }
-        }
-    }
+        if (_player.X >= 0 && _player.X < Height && _player.Y >= 0 && _player.Y < Width)
+            _map[_player.X, _player.Y] = Player.Symbol;
 
-    public void PlacePlayer()
-    {
-        map[_player.X, _player.Y] = _player.symbol;
-    }
-
-    public void PlaceEnemy()
-    {
         foreach (var enemy in _enemies)
-        {
-            map[enemy.X, enemy.Y] = enemy.symbol;
-        }
-    }
+            if (enemy.X >= 0 && enemy.X < Height && enemy.Y >= 0 && enemy.Y < Width)
+                _map[enemy.X, enemy.Y] = Enemy.Symbol;
 
-    public void PlaceTreasure()
-    {
-        map[_treasure.X, _treasure.Y] = _treasure.symbol;
+        foreach (var treasure in _treasures)
+            if (treasure.X >= 0 && treasure.X < Height && treasure.Y >= 0 && treasure.Y < Width)
+                _map[treasure.X, treasure.Y] = Treasure.Symbol;
     }
 
     public void DisplayMap()
     {
-        InitializeMap();
+        ClearMap();
+        PlaceObjects();
 
-        //PlacePlayer();
-
-        //PlaceEnemy();
-
-        //PlaceTreasure();
-
-        for (int i = 0; i < width; i++)
+        for (int i = 0; i < Height; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < Width; j++)
             {
-                Console.Write(map[i, j]);
+                Console.Write(_map[i, j]);
             }
             Console.WriteLine();
         }

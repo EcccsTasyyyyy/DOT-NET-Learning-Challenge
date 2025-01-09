@@ -1,25 +1,34 @@
-﻿namespace Dynamic_Game_With_Moving_Enemies;
+﻿using System;
 
-public class Enemy
+namespace Dynamic_Game_With_Moving_Enemies;
+
+public class Enemy(int x, int y)
 {
-    public int X { get; set; }
-    public int Y { get; set; }
-    public char symbol = 'E';
+    public int X { get; set; } = x;
+    public int Y { get; set; } = y;
+    public static char Symbol => 'E';
 
-    public Enemy(int x, int y)
-    {
-        X = x;
-        Y = y;
-    }
+    private static readonly Random random = new();
 
-    private static readonly Random random = new Random();
+    //public void EnemyMovement(int playerX, int playerY)
+    //{
+    //    if (X < playerX) X++;
+    //    else if (X > playerX) X--;
+
+    //    if (Y < playerY) Y++;
+    //    else if (Y > playerY) Y--;
+    //}
 
     public void EnemyMovement()
     {
-        int dx = random.Next(1, 50);
-        int dy = random.Next(1, 50);
+        int direction = random.Next(4); // 0 = Up, 1 = Down, 2 = Left, 3 = Right
 
-        X = dx;
-        Y = dy;
+        switch (direction)
+        {
+            case 0: if (X > 0) X--; break; // Move Up
+            case 1: if (X < Map.Height - 1) X++; break; // Move Down
+            case 2: if (Y > 0) Y--; break; // Move Left
+            case 3: if (Y < Map.Width - 1) Y++; break; // Move Right
+        }
     }
 }

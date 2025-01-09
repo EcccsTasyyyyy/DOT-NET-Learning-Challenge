@@ -1,26 +1,31 @@
 ﻿namespace Dynamic_Game_With_Moving_Enemies;
 
-public class Player
+public class Player(int x, int y)
 {
-    public int X {  get; set; }
-    public int Y { get; set; }
-    public int Score { get; set; }
-    public char symbol = 'P';
-    public Player(int x, int y)
+    public int X { get; set; } = x;
+    public int Y { get; set; } = y;
+    public int Score { get; set; } = 0;
+    public int Health { get; set; } = 100;
+    public static char Symbol => 'P';
+
+    public void PlayerMovement(char direction)
     {
-        X = x;
-        Y = y;
-        Score = 0;
+        switch (direction)
+        {
+            case 'w': if (X > 0) X--; break; //Move up
+            case 's': if (X < Map.Height - 1) X++; break; //Move down
+            case 'a': if (Y > 0) Y--; break; //Move left
+            case 'd': if (Y < Map.Width - 1) Y++; break; //Move right
+        }
     }
 
-    private static readonly Random random = new Random();
-
-    public void PlayerMovement()
+    public void CollectTreasure()
     {
-        int dx = random.Next(1, 50);
-        int dy = random.Next(1, 50);
+        Score += 10;
+    }
 
-        X = dx;
-        Y = dy;
+    public void DecreaseHealth()
+    {
+        Health -= 10;
     }
 }
