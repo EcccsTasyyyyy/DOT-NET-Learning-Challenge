@@ -21,7 +21,7 @@ public class Enemy(int x, int y)
 
     public void EnemyMovement()
     {
-        int direction = random.Next(4); // 0 = Up, 1 = Down, 2 = Left, 3 = Right
+        int direction = random.Next(4);
 
         switch (direction)
         {
