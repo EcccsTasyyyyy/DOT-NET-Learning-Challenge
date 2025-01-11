@@ -6,7 +6,6 @@ public class Game
     private readonly Enemy[] _enemies;
     private readonly Treasure[] _treasures;
     private readonly Map _map;
-    private readonly double safeDistance = 5;
 
     Random random = new();
     public Game()
