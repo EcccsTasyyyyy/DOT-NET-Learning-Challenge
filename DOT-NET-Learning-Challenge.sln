@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Processing_Wizard", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic-Game-With-Moving-Enemies", "Dynamic-Game-With-Moving-Enemies\Dynamic-Game-With-Moving-Enemies.csproj", "{77978292-685E-4A95-BFCD-A33804125F09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Your-Own-Library", "Your-Own-Library\Your-Own-Library.csproj", "{A3C5F7C0-F1DE-4C7C-8F1A-8B243FC424D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{77978292-685E-4A95-BFCD-A33804125F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77978292-685E-4A95-BFCD-A33804125F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77978292-685E-4A95-BFCD-A33804125F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3C5F7C0-F1DE-4C7C-8F1A-8B243FC424D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C5F7C0-F1DE-4C7C-8F1A-8B243FC424D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C5F7C0-F1DE-4C7C-8F1A-8B243FC424D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C5F7C0-F1DE-4C7C-8F1A-8B243FC424D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
